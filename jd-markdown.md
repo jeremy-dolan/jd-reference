@@ -113,8 +113,8 @@ like this
 
 Not all Markdown applications support these elements.
 
-~~struck~~ text
-
+~~struck~~ text   # both VSC and GH?  
+~struck~ text     # GH only?
 
 ### Table
 
@@ -145,7 +145,9 @@ if self.regions.get(i):
 
 ### Footnote
 
-Here's a sentence with a footnote. [^1]
+Here's a sentence with a footnote.[^1]
+✅ GitHub  
+❌ VSCode
 
 [^1]: This isn't supported by VSCode.
 
@@ -166,19 +168,24 @@ Jumping to anchors at headers:
 Not supported in VS Code:
 
 term
-: de`fi`nition
+: definition
 
 ### Task List
 
-Not supported in VS Code:
+- [x] Do the thing
+- [ ] ???
+- [ ] PROFIT!
 
-- [x] Write the press release
-- [ ] Update the website
-- [ ] Contact the media
+✅ GitHub  
+❌ VSCode
 
 ### Emoji
 
-Not supported in VS Code: :joy:
+:joy:
+
+✅ GitHub  
+❌ VSCode
+
 
 ### Highlight
 
