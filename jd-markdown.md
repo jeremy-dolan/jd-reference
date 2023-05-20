@@ -46,13 +46,15 @@ H2 alternate syntax
 >> with a nested
 >> blockquote
 
-`code, and you can use `` in your string`
+inline `code, and you can use `` in your` string
 
-``also code, and you can use ` in your string``
+also inline ``code, but you can use ` in your`` string
 
-    codeblock, if we are indented by at least
-    four spaces -- see fenced codeblocks in
-    extended syntax for an alternate syntax
+    codeblock, by uniformly indenting at least
+    four spaces -- see also fenced codeblocks in
+    extended syntax for an alternative
+
+---
 
 ### Links
 
@@ -68,10 +70,14 @@ won't be rendered, even though it's nicely human readable as text
 
 [1]: https://www.markdownguide.org "optional tool tip"
 
+---
+
 ### Images
 
 Same as Link syntax, just with a leading !:
 ![Image with alt text](https://jeremydolan.net/media/Markdown.png "tool tip")
+
+---
 
 ### Linked Images
 
@@ -80,12 +86,16 @@ Same as Link syntax, just with a leading !:
 
 [label]: https://www.flickr.com/photos/beaurogers/31833779864/in/photolist-Qv3rFw-34mt9F-a9Cmfy-5Ha3Zi-9msKdv-o3hgjr-hWpUte-4WMsJ1-KUQ8N-deshUb-vssBD-6CQci6-8AFCiD-zsJWT-nNfsgB-dPDwZJ-bn9JGn-5HtSXY-6CUhAL-a4UTXB-ugPum-KUPSo-fBLNm-6CUmpy-4WMsc9-8a7D3T-83KJev-6CQ2bK-nNusHJ-a78rQH-nw3NvT-7aq2qf-8wwBso-3nNceh-ugSKP-4mh4kh-bbeeqH-a7biME-q3PtTf-brFpgb-cg38zw-bXMZc-nJPELD-f58Lmo-bXMYG-bz8AAi-bxNtNT-bXMYi-bXMY6-bXMYv "using a link label to isolate out this long link"
 
+---
+
 ### Ordered Lists
 
 1. First item
 2. Second item
 1. Third item (any number will do!)
 1\. escape . to start lines with [number][period]
+
+---
 
 ### Unordered Lists
 
@@ -95,28 +105,38 @@ Same as Link syntax, just with a leading !:
     - nest lists by indenting
     \- escape - to start lines with -
 
+---
+
 ### Horizontal Rule
 
 Three or more asterisks (***), dashes (---), or underscores (___)
 
----
+***
 
 ### Line breaks
 
-Use two or more spaces  
-at the end of a line for a line break    
-like this
+Two or more spaces at the end of a line yield a line break.  
+It is  
+mildly  
+frowned upon
 
-
+---
 
 # Extended Syntax
 
-Not all Markdown applications support these elements.
+DANGER! Not all Markdown applications support these elements.
 
-~~struck~~ text   # both VSC and GH?  
-~struck~ text     # GH only?
+### Struck text
 
-### Table
+~~struck text~~ - Both VSCode and GitHub render text bracketed by \~\~ as
+struck, but GitHub also strikes text backeted by single tildes.
+
+✅ GitHub  
+✅ VSCode
+
+---
+
+### Tables and column alignment
 
 Three or more hyphens to create each column’s header. Optionally, colons in the
 hyphen sequence specify alignment for the column. This can help:
@@ -126,6 +146,11 @@ hyphen sequence specify alignment for the column. This can help:
 | :---        |    :----:   |          ---: |
 | Header      | Title       | Here's this   |
 | Paragraph   | Text        | And more      |
+
+✅ GitHub  
+✅ VSCode
+
+---
 
 ### Fenced Code Block with optional syntax highlighting
 
@@ -143,13 +168,20 @@ if self.regions.get(i):
     region_length = 3 + len(max(self.regions.values(), key=len, default=''))
 ```
 
+✅ GitHub  
+✅ VSCode
+
+---
+
 ### Footnote
 
-Here's a sentence with a footnote.[^1]
+Here's a sentence with a footnote.[^1]  
 ✅ GitHub  
 ❌ VSCode
 
 [^1]: This isn't supported by VSCode.
+
+---
 
 ### Heading_ID / anchor links
 
@@ -160,8 +192,13 @@ at least auto-completes the name to let you find it. I think I saw an algorithm
 in one of the references but can't for the life of me find it now.
 
 Jumping to anchors at headers:  
-- [Back to Tables section](#table)
+- [Back to Tables section](#tables-and-column-alignment)
 - [or to the top of this section](#heading_id--anchor-links)
+
+✅ GitHub  
+✅ VSCode
+
+---
 
 ### Definition List
 
@@ -169,6 +206,8 @@ Not supported in VS Code:
 
 term
 : definition
+
+---
 
 ### Task List
 
@@ -179,13 +218,16 @@ term
 ✅ GitHub  
 ❌ VSCode
 
-### Emoji
+---
 
-:joy:
+### Emojis by name
+
+:joy: :see_no_evil: 
 
 ✅ GitHub  
 ❌ VSCode
 
+---
 
 ### Highlight
 
