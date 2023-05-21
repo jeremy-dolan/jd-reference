@@ -1,11 +1,13 @@
 # jd's markdown reference
 
-This file was based primarily on <https://markdownguide.org>, with reference to...
+This file was based primarily on <https://markdownguide.org>, with reference
+to...
  - John Gruber’s spec: <https://daringfireball.net/projects/markdown/syntax>
  - The CommonMark precisification: <https://spec.commonmark.org/0.30/>
  - Basic syntax guide: <https://www.markdownguide.org/basic-syntax>
  - Extended syntax guide: <https://www.markdownguide.org/extended-syntax>
- - GitHub Flavored Markdown (GFM), based on CommonMark: <https://github.github.com/gfm/>
+ - GitHub Flavored Markdown (GFM), based on CommonMark:
+   <https://github.github.com/gfm/>
 
 (In VSCode, shift-command-V will render)
 
@@ -36,19 +38,20 @@ H2 alternate syntax
 
 ### Basic formatting
 
-*italicized text*
+*\*italicized text\**
 
-**bold text**
+**\*\*bold text\*\***
 
-> blockquote
->
-> text
+> blockquoted text
+> prefaced with >
 >> with a nested
 >> blockquote
+>>> we can keep going
 
-inline `code, and you can use `` in your` string
 
-also inline ``code, but you can use ` in your`` string
+inline `code with one backtick, and you can use `` in your` string
+
+also inline ``code with double backtick, but you can use ` in your`` string
 
     codeblock, by uniformly indenting at least
     four spaces -- see also fenced codeblocks in
@@ -58,15 +61,21 @@ also inline ``code, but you can use ` in your`` string
 
 ### Links
 
-[Links with alt text](https://www.markdownguide.org "optional tool tip")
+1. Inline [link](https://www.example.com "optional tool tip") syntax:
+`[text](url)`
 
-Autolink syntax with <>: <https://www.markdownguide.org>, <fake@example.com>
+2. 'Autolinks' when your link name is just the url itself, with `<url>`:
+<http://example.com>, <user@example.com>
 
-Links with reference-style syntax, to keep text more human-readable:  
-[text for the link][1]
+3. Reference-style [links][1] will keep the source text more human-readable.
+The in-line markup is simply:
+> `[text][<ref_name>]`
 
-Then, anywhere else in the document, define that reference. The following line
-won't be rendered, even though it's nicely human readable as text
+Then, anywhere else in the document, define that reference:  
+> `[<ref_name>]: url "tool tip"`
+
+That line won't be rendered in a Markdown viewer, but will look clean when
+viewing the source text.
 
 [1]: https://www.markdownguide.org "optional tool tip"
 
@@ -74,17 +83,22 @@ won't be rendered, even though it's nicely human readable as text
 
 ### Images
 
-Same as Link syntax, just with a leading !:
+Similar to link syntax, but with a leading !: `![alt text](url.png "tool tip")`
 ![Image with alt text](https://jeremydolan.net/media/Markdown.png "tool tip")
 
 ---
 
 ### Linked Images
 
-[ to start the link, then ![ to start the image gives us [![ an exclam sandwich
-[![An old rock in the desert](https://www.markdownguide.org/assets/images/shiprock.jpg "Shiprock, New Mexico by Beau Rogers")][label]
+[ to start the link then ![ to start the image gives us [![ an exclam sandwich:  
+`[![alt text if image doesn't load](image URL "image tool tip")](link url)`  
+Or see source below for an example using a reference-style link.
+[![An old rock in the desert](
+    https://www.markdownguide.org/assets/images/shiprock.jpg
+    "Shiprock, New Mexico by Beau Rogers") extra text][link2]
 
-[label]: https://www.flickr.com/photos/beaurogers/31833779864/in/photolist-Qv3rFw-34mt9F-a9Cmfy-5Ha3Zi-9msKdv-o3hgjr-hWpUte-4WMsJ1-KUQ8N-deshUb-vssBD-6CQci6-8AFCiD-zsJWT-nNfsgB-dPDwZJ-bn9JGn-5HtSXY-6CUhAL-a4UTXB-ugPum-KUPSo-fBLNm-6CUmpy-4WMsc9-8a7D3T-83KJev-6CQ2bK-nNusHJ-a78rQH-nw3NvT-7aq2qf-8wwBso-3nNceh-ugSKP-4mh4kh-bbeeqH-a7biME-q3PtTf-brFpgb-cg38zw-bXMZc-nJPELD-f58Lmo-bXMYG-bz8AAi-bxNtNT-bXMYi-bXMY6-bXMYv "using a link label to isolate out this long link"
+[link2]: https://www.flickr.com/photos/beaurogers/31833779864/
+   "using a link label to isolate out this long link"
 
 ---
 
@@ -93,7 +107,7 @@ Same as Link syntax, just with a leading !:
 1. First item
 2. Second item
 1. Third item (any number will do!)
-1\. escape . to start lines with [number][period]
+1\. escape the . to *prevent* recognition of text as a list item
 
 ---
 
@@ -103,7 +117,7 @@ Same as Link syntax, just with a leading !:
 - with an asterisk (*)
 - with a plus sign (+)
     - nest lists by indenting
-    \- escape - to start lines with -
+    \- escape the - to start lines with -
 
 ---
 
@@ -152,7 +166,7 @@ hyphen sequence specify alignment for the column. This can help:
 
 ---
 
-### Fenced Code Block with optional syntax highlighting
+### Fenced code block, with syntax highlighting
 
 ```JSON
 {
@@ -189,9 +203,9 @@ Many Markdown viewers automatically generate anchor names at headings,
 with the header name transformed into an anchor name with something like
 tolower() + sub(' ', '-') + sub('/', '') and probably some other stuff. VSCode
 at least auto-completes the name to let you find it. I think I saw an algorithm 
-in one of the references but can't for the life of me find it now.
+in one of the references but can't for the life of me find it now. TODO.
 
-Jumping to anchors at headers:  
+Jumping to header anchors:
 - [Back to Tables section](#tables-and-column-alignment)
 - [or to the top of this section](#heading_id--anchor-links)
 
@@ -222,4 +236,5 @@ Jumping to anchors at headers:
 
 ### Subscripts and Superscripts
 
-In both GitHub and VSCode, Markdown can use the HTML tags sub (H<sub>2</sub>O) and sup (X<sup>2</sup>).
+Both GitHub and VSCode Markdown views will render the HTML tags sub
+(H<sub>2</sub>O) and sup (X<sup>2</sup>).
