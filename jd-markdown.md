@@ -129,7 +129,7 @@ DANGER! Not all Markdown applications support these elements.
 ### Struck text
 
 ~~struck text~~ - Both VSCode and GitHub render text bracketed by \~\~ as
-struck, but GitHub also strikes text backeted by single tildes.
+struck. (GitHub also strikes text backeted by single tildes.)
 
 ✅ GitHub  
 ✅ VSCode
@@ -200,15 +200,6 @@ Jumping to anchors at headers:
 
 ---
 
-### Definition List
-
-Not supported in VS Code:
-
-term
-: definition
-
----
-
 ### Task List
 
 - [x] Do the thing
@@ -229,14 +220,6 @@ term
 
 ---
 
-### Highlight
+### Subscripts and Superscripts
 
-Not supported in VS Code: ==very important words==
-
-### Subscript
-
-Not supported in VS Code: H~2~O
-
-### Superscript
-
-Not supported in VS Code: X^2^
+In both GitHub and VSCode, Markdown can use the HTML tags sub (H<sub>2</sub>O) and sup (X<sup>2</sup>).
