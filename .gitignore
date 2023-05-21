@@ -1,0 +1,11 @@
+Perl
+Git
+Python
+Markdown
+old
+private
+untracked
+*.swp
+__pycache__
+.DS_Store
+.vscode
