@@ -191,19 +191,25 @@ if self.regions.get(i):
 
 ## Math and fenced math
 
-Inline, text surrounded by `$` is rendered as math:
+Text surrounded by `$` is rendered as inline math:
 $x = {-b \pm \sqrt{b^2-4ac} \over 2a}$
 
-Use `$$` to start and end a fenced math block:
-$$
-\int_0^\infty \frac{x^3}{e^x-1}\,dx = \frac{\pi^4}{15}
-$$
+To display a block of math, syntax is not very consistant accross Markdown
+interpreters. If the formula can be written as a single line, then begin a line
+with `$$`, followed by the math markup, and end the line with `$$` again:
+
+$$\int_0^\infty \frac{x^3}{e^x-1}\,dx = \frac{\pi^4}{15}$$
+
+For multiline formulas, Markdown syntax and math rendering quality seem
+sufficiently inconsistant as to make the functionality nonviable across
+platforms. For use on a single platform, consult that platform's documentation,
+and cross your fingers.
 
 Both GitHub ([ref][gh-math]) and Jupyter ([ref][j-math]) use [MathJax][mathjax]
-to render math markup; VSCode appears at least superficially compatible but I'm
-not sure where it is documented.
+to render math markup; VSCode appears to use KaTeX (based on its error
+messages), but I'm not sure where it's documented.
 
-[gh-math]: https://github.blog/2022-05-19-math-support-in-markdown/
+[gh-math]: https://docs.github.com/en/get-started/writing-on-github/working-with-advanced-formatting/writing-mathematical-expressions
 [j-math]: https://jupyterbook.org/en/stable/content/math.html
 [mathjax]: https://docs.mathjax.org/en/latest/
 
