@@ -36,7 +36,7 @@ H2 alternate syntax
 
 ---
 
-### Basic formatting
+# Basic formatting
 
 *\*italicized text\**
 
@@ -59,36 +59,34 @@ also inline ``code with double backtick, but you can use ` in your`` string
 
 ---
 
-### Links
+# Links
 
-1. Inline [link](https://www.example.com "optional tool tip") syntax:
+1. [Inline link](https://www.example.com "optional tool tip") syntax:
 `[text](url)`
-
 2. 'Autolinks' when your link name is just the url itself, with `<url>`:
 <http://example.com>, <user@example.com>
-
-3. Reference-style [links][1] will keep the source text more human-readable.
+3. [Reference-style links][1] will keep the source text more human-readable.
 The in-line markup is simply:
 > `[text][<ref_name>]`
 
 Then, anywhere else in the document, define that reference:  
 > `[<ref_name>]: url "tool tip"`
 
-That line won't be rendered in a Markdown viewer, but will look clean when
-viewing the source text.
+That line won't be rendered in a Markdown viewer, but is nicely useable in
+non-rendered views.
 
 [1]: https://www.markdownguide.org "optional tool tip"
 
 ---
 
-### Images
+# Images
 
-Similar to link syntax, but with a leading !: `![alt text](url.png "tool tip")`
+Resembles link syntax, but with a leading !: `![alt text](url.png "tool tip")`
 ![Image with alt text](https://jeremydolan.net/media/Markdown.png "tool tip")
 
 ---
 
-### Linked Images
+# Linked Images
 
 [ to start the link then ![ to start the image gives us [![ an exclam sandwich:  
 `[![alt text if image doesn't load](image URL "image tool tip")](link url)`  
@@ -102,16 +100,16 @@ Or see source below for an example using a reference-style link.
 
 ---
 
-### Ordered Lists
+# Ordered Lists
 
 1. First item
 2. Second item
-1. Third item (any number will do!)
-1\. escape the . to *prevent* recognition of text as a list item
+1. Third(!) item (any number will do!). Finally: 
+1\. escape the . to prevent recognition of `^[num].` as a list item
 
 ---
 
-### Unordered Lists
+# Unordered Lists
 
 - with a dash (-)
 - with an asterisk (*)
@@ -121,18 +119,22 @@ Or see source below for an example using a reference-style link.
 
 ---
 
-### Horizontal Rule
+# Horizontal Rule
 
 Three or more asterisks (***), dashes (---), or underscores (___)
 
 ***
 
-### Line breaks
+# Line breaks
 
-Two or more spaces at the end of a line yield a line break.  
-It is  
+Two or more spaces at the end of a line yield a line break:  
+It is invisible and thus is  
 mildly  
-frowned upon
+frowned upon.  
+Alternatively, you can backslash before the newline:\
+It looks\
+messy\
+in the source.
 
 ---
 
@@ -140,7 +142,7 @@ frowned upon
 
 DANGER! Not all Markdown applications support these elements.
 
-### Struck text
+## Struck text
 
 ~~struck text~~ - Both VSCode and GitHub render text bracketed by \~\~ as
 struck. (GitHub also strikes text backeted by single tildes.)
@@ -150,7 +152,7 @@ struck. (GitHub also strikes text backeted by single tildes.)
 
 ---
 
-### Tables and column alignment
+## Tables and column alignment
 
 Three or more hyphens to create each column’s header. Optionally, colons in the
 hyphen sequence specify alignment for the column. This can help:
@@ -166,7 +168,7 @@ hyphen sequence specify alignment for the column. This can help:
 
 ---
 
-### Fenced code block, with syntax highlighting
+## Fenced code block (with syntax highlighting)
 
 ```JSON
 {
@@ -187,7 +189,7 @@ if self.regions.get(i):
 
 ---
 
-### Footnote
+## Footnote
 
 Here's a sentence with a footnote.[^1]  
 ✅ GitHub  
@@ -197,7 +199,7 @@ Here's a sentence with a footnote.[^1]
 
 ---
 
-### Heading_ID / anchor links
+## Heading_ID / anchor links
 
 Many Markdown viewers automatically generate anchor names at headings,
 with the header name transformed into an anchor name with something like
@@ -214,7 +216,7 @@ Jumping to header anchors:
 
 ---
 
-### Task List
+## Task List
 
 - [x] Do the thing
 - [ ] ???
@@ -225,7 +227,7 @@ Jumping to header anchors:
 
 ---
 
-### Emojis by name
+## Emojis by name
 
 :joy: :see_no_evil: 
 
@@ -234,7 +236,7 @@ Jumping to header anchors:
 
 ---
 
-### Subscripts and Superscripts
+## Subscripts and Superscripts
 
 Both GitHub and VSCode Markdown views will render the HTML tags sub
 (H<sub>2</sub>O) and sup (X<sup>2</sup>).
