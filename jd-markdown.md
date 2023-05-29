@@ -189,6 +189,29 @@ if self.regions.get(i):
 
 ---
 
+## Math and fenced math
+
+Inline, text surrounded by `$` is rendered as math:
+$x = {-b \pm \sqrt{b^2-4ac} \over 2a}$
+
+Use `$$` to start and end a fenced math block:
+$$
+\int_0^\infty \frac{x^3}{e^x-1}\,dx = \frac{\pi^4}{15}
+$$
+
+Both GitHub ([ref][gh-math]) and Jupyter ([ref][j-math]) use [MathJax][mathjax]
+to render math markup; VSCode appears at least superficially compatible but I'm
+not sure where it is documented.
+
+[gh-math]: https://github.blog/2022-05-19-math-support-in-markdown/
+[j-math]: https://jupyterbook.org/en/stable/content/math.html
+[mathjax]: https://docs.mathjax.org/en/latest/
+
+✅ GitHub  
+✅ VSCode
+
+---
+
 ## Footnote
 
 Here's a sentence with a footnote.[^1]  
