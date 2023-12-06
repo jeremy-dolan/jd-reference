@@ -10,7 +10,7 @@ Grammar and Shell Commands (§2.9)
 
 Due to `sh`'s complex history, its syntax can seems idiosyncratic, with
 semicolons or quotation being required in the ostensibly unlikeliest of places.
-What helped me, at least, was to appreciate the following hierarchy:
+The following hierarchy might help provide a sense of order:
 
 The basic grammar consists of simple commands (with optional variable
 assignments and fd redirections), optionally combined into pipelines,
