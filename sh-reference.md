@@ -8,9 +8,9 @@ Grammar and Shell Commands (§2.9)
 
 ### Basic Grammar (§2.9.1 - 2.9.3)
 
-Due to `sh`'s complex history, it syntax sometimes seems idiosyncratic, with
-semicolons or quotation being required in the unlikliest of places. What helped
-me, at least, was to appreciate the following hierarchy:
+Due to `sh`'s complex history, its syntax can seems idiosyncratic, with
+semicolons or quotation being required in the ostensibly unlikeliest of places.
+What helped me, at least, was to appreciate the following hierarchy:
 
 The basic grammar consists of simple commands (with optional variable
 assignments and fd redirections), optionally combined into pipelines,
@@ -21,17 +21,17 @@ summarized in the next section.
 
 ```
 SIMPLE_COMMAND: one or more WORDS followed by a CONTROL_OPERATOR (see table)
-                 - WORDs undergo WORD EXPANSION (see below). If any fields remain, the
-                   first field is considered the command name and the remaining
+                 - WORDs undergo WORD EXPANSION (see below). If any fields remain,
+                   the first field is considered the command name and the remaining
                    fields are considered the arguments for the command.
                  - the WORD sequence may be preceded by VARIABLE ASSIGNMENTs: FOO=bar WORD
-                 - the WORD sequence may be preceded or succeeded by REDIRECTIONs 
+                 - the WORD sequence may be preceded or succeeded by REDIRECTIONs: 2>&1
 PIPELINE:       one or more SIMPLE_COMMANDs separated by `|`
                  - the PIPELINE may begin with `!` in which case its return value
                    will be logically negated: if the last command returns 0, the
                    pipeline will return 1; if the last command returns non-zero,
                    the pipeline will return 0.
-AND-OR_LIST:    one or more PIPELINEs separated by `&&` and/or `||`
+AND-OR_LIST:    one or more PIPELINEs separated by `&&` or `||`
 LIST:           one or more AND-OR_LISTs separated by `;` or `&`
 COMPOUND_LIST:  one or more LISTs separated by `<newline>` characters
 ```
@@ -67,7 +67,7 @@ working directory...) will not affect the parent shell.
 { COMPOUND_LIST CONTROL_OPERATOR }
 ```
 Run COMPOUND_LIST in the current process. Note the required CONTROL_OPERATOR
-(typically `;` or `<newline>`). I fail to see why the parse couldn't identify
+(typically `;` or `<newline>`). I fail to see why a parser couldn't identify
 the closing brace without a CONTROL_OPERATOR, but it doesn't--neither in the
 spec, nor in the implementations.
 
@@ -138,10 +138,10 @@ done
 ```sh
 if COMPOUND_LIST then COMPOUND_LIST [ elif COMPOUND_LIST then COMPOUND_LIST ] [else COMPOUND_LIST ] fi
 ```
-Execute the `if` COMPOUND_LIST; if the exit status is zero, execute the
-corresponding `then` COMPOUND_LIST. If the exit status was non-zero, perform
-the same logic on each optional `elif` branch in turn. If all are non-zero,
-execute the `else` COMPOUND_LIST.
+Execute the `if` COMPOUND_LIST; if the exit status is zero (success), execute
+the corresponding `then` COMPOUND_LIST. If the exit status was non-zero,
+perform the same logic on each optional `elif` branch in turn. If all are
+non-zero, execute the optional `else` COMPOUND_LIST.
 
 --------------------------------------------------------------------------------
 
@@ -149,9 +149,9 @@ execute the `else` COMPOUND_LIST.
 ```sh
 while COMPOUND_LIST do COMPOUND_LIST done
 ```
-Run the antecedent COMPOUND_LIST. If the return value is 0 (success), run the
-consequent COMPOUND_LIST and start over; otherwise (return value is non-zero),
-processing of the `while` immediately completes.
+Run the antecedent COMPOUND_LIST. If the return value is zero (success), run
+the consequent COMPOUND_LIST and start over; otherwise (return value is
+non-zero), processing of the `while` immediately completes.
 
 --------------------------------------------------------------------------------
 
@@ -159,8 +159,8 @@ processing of the `while` immediately completes.
 ```sh
 until COMPOUND_LIST do COMPOUND_LIST done
 ```
-Same as `while` but the success/failure check for the antecedent list is
-inverted -- i.e., `until COMPOUND_LIST ...` = `while ! COMPOUND_LIST ...`
+Same as `while` but the success/failure check for the antecedent COMPOUND_LIST
+is inverted -- i.e., `until COMPOUND_LIST ...` = `while ! COMPOUND_LIST ...`
 
 --------------------------------------------------------------------------------
 
@@ -176,7 +176,6 @@ return [n]      # exit from a function or dot-script with return value "n"
 exit [n]        # exit shell with return value "n", traps on EXIT executed first
 trap            # TODO
 :               # do nothing ("pass")
-
 
 # variables
 set                   # TODO. cf $-
@@ -265,8 +264,8 @@ Expansion (§2.6)
 ```
 ${parameter-word} - (use a default value) if parameter is unset, substitute word
 ${parameter=word} - (assign a default value) if parameter is unset, assign it word
-${parameter+word} - (use alt. value) if parameter is unset, substitute null; otherwise, substitute word
-${parameter?word} - (throw error) if parameter is unset, throw an error; word is a custom error message
+${parameter+word} - (use an alt. value) if parameter is unset, substitute null; otherwise, substitute word
+${parameter?word} - (throw an error) if parameter is unset, throw an error; word is a custom error message
                     but see "unset variable handling" below
     optionally, a ":" can prefix the -=?+ operators, making null values behave the same as unset
 
@@ -279,7 +278,6 @@ echo "${parameter-"default value"}"    # output: default value
 echo "${parameter="new value"}"        # output: new value [plus assignment happens]
 echo "${parameter+"alternate value"}"  # output: alternate value
 ```
-
 
 ```sh
 # unset variable handling (set -u)
