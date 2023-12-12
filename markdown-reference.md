@@ -1,30 +1,25 @@
-# jd's markdown reference
+# Markdown reference
 
-This file was based primarily on <https://markdownguide.org>, with reference
-to...
+This file was based primarily on <https://markdownguide.org>, with reference to...
+
  - John Gruber’s spec: <https://daringfireball.net/projects/markdown/syntax>
  - The CommonMark precisification: <https://spec.commonmark.org/0.30/>
  - Basic syntax guide: <https://www.markdownguide.org/basic-syntax>
  - Extended syntax guide: <https://www.markdownguide.org/extended-syntax>
- - GitHub Flavored Markdown (GFM), based on CommonMark:
-   <https://github.github.com/gfm/>
+ - GitHub Flavored Markdown (GFM), based on CommonMark: <https://github.github.com/gfm/>
 
 (In VSCode, shift-command-V will render)
 
 # Basic Syntax
 
-The elements outlined in John Gruber’s original design. All Markdown
+These elements were outlined in John Gruber’s original design. All Markdown
 applications should support these elements.
 
-# H1
+H1  <!-- alternatively, # H1 -->
+==
 
-H1 alternate syntax
-===================
-
-## H2
-
-H2 alternate syntax
--------------------
+H2  <!-- alternatively, ## H2 -->
+--
 
 ### H3
 
@@ -36,7 +31,7 @@ H2 alternate syntax
 
 ---
 
-# Basic formatting
+## Basic formatting
 
 *\*italicized text\**
 
@@ -48,23 +43,20 @@ H2 alternate syntax
 >> blockquote
 >>> we can keep going
 
-
 inline `code with one backtick, and you can use `` in your` string
 
 also inline ``code with double backtick, but you can use ` in your`` string
 
-    codeblock, by uniformly indenting at least
+    codeblock set by uniformly indenting at least
     four spaces -- see also fenced codeblocks in
     extended syntax for an alternative
 
 ---
 
-# Links
+## Links
 
-1. [Inline link](https://www.example.com "optional tool tip") syntax:
-`[text](url)`
-2. 'Autolinks' when your link name is just the url itself, with `<url>`:
-<http://example.com>, <user@example.com>
+1. [Inline link](https://www.example.com "optional tool tip") syntax: `[text](url)`
+2. 'Autolinks' when your link name is just the url itself, with `<url>`: <http://example.com>, <user@example.com>
 3. [Reference-style links][1] will keep the source text more human-readable.
 The in-line markup is simply:
 > `[text][<ref_name>]`
@@ -79,16 +71,16 @@ non-rendered views.
 
 ---
 
-# Images
+## Images
 
 Resembles link syntax, but with a leading !: `![alt text](url.png "tool tip")`
 ![Image with alt text](https://jeremydolan.net/media/Markdown.png "tool tip")
 
 ---
 
-# Linked Images
+## Linked Images
 
-[ to start the link then ![ to start the image gives us [![ an exclam sandwich:  
+[ to start the link then ![ to start the image gives us [![ -- an exclam sandwich:  
 `[![alt text if image doesn't load](image URL "image tool tip")](link url)`  
 Or see source below for an example using a reference-style link.
 [![An old rock in the desert](
@@ -100,7 +92,7 @@ Or see source below for an example using a reference-style link.
 
 ---
 
-# Ordered Lists
+## Ordered Lists
 
 1. First item
 2. Second item
@@ -109,44 +101,45 @@ Or see source below for an example using a reference-style link.
 
 ---
 
-# Unordered Lists
+## Unordered Lists
 
-- with a dash (-)
-- with an asterisk (*)
-- with a plus sign (+)
-    - nest lists by indenting
-    \- escape the - to start lines with -
+- With a dash (-)
+- With an asterisk (*)
+- With a plus sign (+)
+    - Nest lists by indenting
+    - Escape the
+    \- to start lines with -
 
 ---
 
-# Horizontal Rule
+## Horizontal Rule
 
 Three or more asterisks (***), dashes (---), or underscores (___)
 
 ***
 
-# Line breaks
+## Line breaks
 
 Two or more spaces at the end of a line yield a line break:  
 It is invisible and thus is  
 mildly  
 frowned upon.  
 Alternatively, you can backslash before the newline:\
-It looks\
+But that looks\
 messy\
 in the source.
-
 
 ---
 
 
 # Extended Syntax
 
-DANGER! Not all Markdown applications support these elements.
+*Warning:* Not all Markdown applications support these elements.
 
 ## Struck text
 
-~~struck text~~ - Both VSCode and GitHub render text bracketed by \~\~ as
+~~struck text~~  
+Both VSCode and GitHub render text bracketed by \~\~ as
 struck. (GitHub also strikes text backeted by single tildes.)
 
 ✅ GitHub  
