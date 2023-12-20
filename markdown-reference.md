@@ -55,19 +55,17 @@ also inline ``code with double backtick, but you can use ` in your`` string
 
 ## Links
 
-1. [Inline link](https://www.example.com "optional tool tip") syntax: `[text](url)`
-2. 'Autolinks' when your link name is just the url itself, with `<url>`: <http://example.com>, <user@example.com>
-3. [Reference-style links][1] will keep the source text more human-readable.
-The in-line markup is simply:
-> `[text][<ref_name>]`
+1. [Inline link](https://jeremydolan.net/ "My Homepage") syntax:
+   `[display text](url "optional tool tip")`
+2. 'Autolinks' maximize readability if your link text is just a URL
+   (<http://example.com>) or e-mail address (<user@example.com>) itself. Just
+   enclose in angle brackets: `<url>`
+3. [Reference-style links][1] will keep the source text more human-readable:
+   `[display text][ref-name]` and then, anywhere else in the document, define
+   that reference: `[ref-name]: url "optional tool tip"` That line won't be
+   rendered in a Markdown viewer and is nicely useable in non-rendered views.
 
-Then, anywhere else in the document, define that reference:  
-> `[<ref_name>]: url "tool tip"`
-
-That line won't be rendered in a Markdown viewer, but is nicely useable in
-non-rendered views.
-
-[1]: https://www.markdownguide.org "optional tool tip"
+[1]: https://jeremydolan.net/ "My Homepage"
 
 ---
 
