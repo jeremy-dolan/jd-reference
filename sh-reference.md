@@ -1,6 +1,9 @@
 # POSIX "Shell Command Language"  
-IEEE Std 1003.1-2017 / Open Group Base Specifications Issue 7, 2018 edition  
-https://pubs.opengroup.org/onlinepubs/9699919799/utilities/V3_chap02.html  
+
+The following two standards are considered "technically identical":  
+    IEEE Std 1003.1-2017, aka "POSIX.1-2017"
+    Open Group Base Specifications Issue 7, 2018 edition  
+url: https://pubs.opengroup.org/onlinepubs/9699919799/utilities/V3_chap02.html  
 
 
 Grammar and Shell Commands (§2.9)
@@ -275,7 +278,7 @@ ${#parameter}: the number of characters in the value of $parameter
 ```sh
 unset paramater
 echo "${parameter-"default value"}"    # output: default value
-echo "${parameter="new value"}"        # output: new value [plus assignment happens]
+echo "${parameter="new value"}"        # output: new value [and assignment occurs]
 echo "${parameter+"alternate value"}"  # output: alternate value
 ```
 
