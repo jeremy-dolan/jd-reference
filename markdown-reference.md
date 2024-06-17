@@ -260,5 +260,7 @@ Jumping to header anchors:
 
 ## Subscripts and Superscripts
 
-Both GitHub and VSCode Markdown views will render the HTML tags sub
-(H<sub>2</sub>O) and sup (X<sup>2</sup>).
+Both GitHub and VSCode Markdown views will render the HTML tags `<sub>`
+(H<sub>2</sub>O) and `<sup>` (1<sup>st</sup>).
+
+Depending on the content, a math block may also be useful: $x^2$
