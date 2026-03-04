@@ -1,9 +1,12 @@
 # POSIX "Shell Command Language"  
 
 The following two standards are considered "technically identical":  
-    IEEE Std 1003.1-2017, aka "POSIX.1-2017"
-    Open Group Base Specifications Issue 7, 2018 edition  
-url: https://pubs.opengroup.org/onlinepubs/9699919799/utilities/V3_chap02.html  
+- IEEE Std 1003.1-2017, aka "POSIX.1-2017"
+- Open Group Base Specifications Issue 7, 2018 edition
+
+Full specification:
+- POSIX.1-2017: <https://pubs.opengroup.org/onlinepubs/9699919799/utilities/V3_chap02.html>
+- POSIX.1-2024: <https://pubs.opengroup.org/onlinepubs/9799919799/utilities/V3_chap02.html>
 
 
 Grammar and Shell Commands (§2.9)
