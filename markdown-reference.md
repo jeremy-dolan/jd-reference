@@ -214,7 +214,7 @@ messages), but I'm not sure where it's documented.
 ## Footnote
 
 Here's a sentence with a footnote.[^1]  
-✅ GitHub  
+✅ GitHub (in .md but not .ipynb files)
 ❌ VSCode
 
 [^1]: This isn't supported by VSCode.
